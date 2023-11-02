@@ -1,0 +1,37 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX sio: <https://sio.semanticscience.org/resource/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ordo: <http://www.orpha.net/ORDO/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+SELECT distinct ?condition_occurrence_id ?person_id ?condition_concept_id ?condition_start_date ?condition_start_datetime ?condition_end_date ?condition_end_datetime ?condition_type_concept_id ?condition_status_concept_id ?stop_reason ?provider_id ?visit_occurrence_id ?visit_detail_id ?condition_source_value ?condition_source_concept_id ?condition_status_source_value ?visit_concept_id ?visit_start_date ?visit_start_datetime ?visit_end_time ?visit_end_datetime ?visit_type_concept_id ?provider_id ?care_site_id ?visit_source_value ?visit_source_concept_id ?admitting_source_concept_id ?admitting_source_value ?discharge_to_concept_id ?discharge_to_source_value ?preceding_visit_occurrence_id
+
+WHERE {
+    GRAPH ?g {
+           ?role sio:SIO_000356 ?process ;  a sio:SIO_000016 .
+           ?process a sio:SIO_000006 , ?process_type ; sio:SIO_000229 ?output; rdfs:label ?process_label ; sio:SIO_000291 ?target; sio:SIO_000230 ?input; sio:SIO_000552 ?route. FILTER (?process_type != sio:SIO_000006) .
+           
+           ?output sio:SIO_000628 ?attribute; a sio:SIO_000015 ; rdfs:label ?output_label.
+           ?output a ?output_type; sio:SIO_000300 ?birth_datetime. FILTER (?output_type != sio:SIO_000015) .
+           ?attribute a sio:SIO_000614,?condition_source_value ; sio:SIO_000332 ?attribute_about.
+           FILTER (?attribute_about = obo:NCIT_C2991 || ?attribute_about = obo:NCIT_C100104). 
+           FILTER (?condition_source_value != sio:SIO_000614)
+       }
+       ?g a obo:NCIT_C62143 ; sio:SIO_000068 ?timeline, ?event ; sio:SIO_000680 ?startdate; sio:SIO_000681 ?enddate; sio:SIO_000687 ?age, ?date ; sio:SIO_000300 ?condition_occurrence_id .
+       ?date a sio:SIO_000418, obo:NCIT_C25164 .
+       ?age a sio:SIO_001013, obo:NCIT_C25150 .
+       ?startdate a sio:SIO_000031 .
+       ?enddate a sio:SIO_000032 .
+   
+    	OPTIONAL{?event a obo:NCIT_C25499 ; sio:SIO_000300 ?visit_occurrence_id.}
+   
+       ?startdate sio:SIO_000300 ?condition_start_date, ?visit_start_date .
+    	OPTIONAL{?enddate sio:SIO_000300 ?condition_end_date , ?visit_end_time .}
+   
+       ?timeline a obo:NCIT_C54576, sio:SIO_000417; sio:SIO_000332 ?individual .
+       ?individual a sio:SIO_000498 ; sio:SIO_000671 ?individual_identifier .       
+       ?individual_identifier a sio:SIO_000115 ; sio:SIO_000300 ?person_id .
+   
+   }

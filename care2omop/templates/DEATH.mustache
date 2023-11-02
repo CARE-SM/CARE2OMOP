@@ -1,0 +1,31 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX sio: <https://sio.semanticscience.org/resource/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ordo: <http://www.orpha.net/ORDO/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT distinct ?person_id ?death_date ?death_datetime ?death_type_concept_id ?cause_concept_id ?cause_source_value ?cause_source_concept_id
+WHERE {
+ GRAPH ?g {
+        ?role sio:SIO_000356 ?process ;  a sio:SIO_000016 .
+        ?process a sio:SIO_000006 , ?process_type ; sio:SIO_000229 ?output; rdfs:label ?process_label ; sio:SIO_000291 ?target; sio:SIO_000230 ?input; sio:SIO_000552 ?route. FILTER (?process_type != sio:SIO_000006) .
+        
+        ?output sio:SIO_000628 ?attribute; a sio:SIO_000015 ; rdfs:label ?output_label.
+        ?output a ?output_type; sio:SIO_000300 ?death_date. FILTER (?output_type != sio:SIO_000015) .
+        ?attribute a sio:SIO_000614.
+        ?attribute a sio:SIO_000614, obo:NCIT_C70810 .
+
+    }
+    ?g a obo:NCIT_C62143 ; sio:SIO_000068 ?timeline, ?event ; sio:SIO_000680 ?startdate; sio:SIO_000681 ?enddate; sio:SIO_000687 ?age, ?date; sio:SIO_000300 ?cause_source_value .
+    ?date a sio:SIO_000418, obo:NCIT_C25164; sio:SIO_000300 ?date_value.
+    ?age a sio:SIO_001013, obo:NCIT_C25150 .
+    ?startdate a sio:SIO_000031 .
+    ?enddate a sio:SIO_000032 .
+
+    #OPTIONAL{?event a obo:NCIT_C25499 ; sio:SIO_000300 ?event_id.}
+
+    ?timeline a obo:NCIT_C54576, sio:SIO_000417; sio:SIO_000332 ?individual .
+    ?individual a sio:SIO_000498 ; sio:SIO_000671 ?individual_identifier .       
+    ?individual_identifier a sio:SIO_000115 ; sio:SIO_000300 ?person_id .
+
+}

@@ -1,0 +1,57 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX sio: <https://sio.semanticscience.org/resource/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ordo: <http://www.orpha.net/ORDO/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT distinct ?person_id ?gender_concept_id ?year_of_birth ?month_of_birth ?day_of_birth ?birth_datetime ?race_concept_id ?ethnicity_concept_id ?location_id ?provider_id ?care_site_id ?person_source_value ?gender_source_value ?gender_source_concept_id ?race_source_value ?race_source_concept_id ?ethnicity_source_value ?ethnicity_source_concept_id
+WHERE {
+
+
+    GRAPH ?dob_g {
+        ?dob_role sio:SIO_000356 ?dob_process ;  a sio:SIO_000016 .
+        ?dob_process a sio:SIO_000006 , ?dob_process_type ; sio:SIO_000229 ?dob_output; rdfs:label ?dob_process_label ; sio:SIO_000291 ?dob_target; sio:SIO_000230 ?dob_input; sio:SIO_000552 ?dob_route. FILTER (?dob_process_type != sio:SIO_000006) .
+        
+        ?dob_output sio:SIO_000628 ?dob_attribute; a sio:SIO_000015 ; rdfs:label ?dob_output_label.
+        ?dob_output a ?dob_output_type; sio:SIO_000300 ?birth_datetime. FILTER (?dob_output_type != sio:SIO_000015) .
+        ?dob_attribute a sio:SIO_000614.
+        ?dob_attribute a sio:SIO_000614, obo:NCIT_C68615 .
+        # ?attribute sio:SIO_000332 ?attribute_type2. FILTER (?attribute_type2 != sio:SIO_000614)
+
+    }
+    ?dob_g a obo:NCIT_C62143 ; sio:SIO_000068 ?dob_timeline, ?dob_event ; sio:SIO_000680 ?dob_startdate; sio:SIO_000681 ?dob_enddate; sio:SIO_000687 ?dob_age, ?dob_date .
+    ?dob_date a sio:SIO_000418, obo:NCIT_C25164 .
+    ?dob_age a sio:SIO_001013, obo:NCIT_C25150 .
+    ?dob_startdate a sio:SIO_000031 .
+    ?dob_enddate a sio:SIO_000032 .
+
+    #OPTIONAL{?dob_event a obo:NCIT_C25499 ; sio:SIO_000300 ?dob_event_id.}
+
+    ?dob_timeline a obo:NCIT_C54576, sio:SIO_000417; sio:SIO_000332 ?dob_individual .
+    ?dob_individual a sio:SIO_000498 ; sio:SIO_000671 ?dob_individual_identifier .       
+    ?dob_individual_identifier a sio:SIO_000115 ; sio:SIO_000300 ?person_id .
+    
+    
+    
+    GRAPH ?sex_g {
+        ?sex_role sio:SIO_000356 ?sex_process ;  a sio:SIO_000016 .
+        ?sex_process a sio:SIO_000006 , ?sex_process_type ; sio:SIO_000229 ?sex_output; rdfs:label ?sex_process_label ; sio:SIO_000291 ?sex_target; sio:SIO_000230 ?sex_input; sio:SIO_000552 ?sex_route. FILTER (?sex_process_type != sio:SIO_000006) .
+        
+        ?sex_output sio:SIO_000628 ?sex_attribute; a sio:SIO_000015 ; rdfs:label ?sex_output_label.
+        ?sex_output a ?sex_output_type. FILTER (?sex_output_type != sio:SIO_000015) .
+        ?sex_attribute a ?gender_source_value FILTER (?gender_source_value != sio:SIO_000614)
+        ?sex_attribute sio:SIO_000332 obo:NCIT_C28421 .
+
+    }
+    ?sex_g a obo:NCIT_C62143 ; sio:SIO_000068 ?sex_timeline, ?sex_event ; sio:SIO_000680 ?sex_startdate; sio:SIO_000681 ?sex_enddate; sio:SIO_000687 ?sex_age, ?sex_date .
+    ?sex_date a sio:SIO_000418, obo:NCIT_C25164 .
+    ?sex_age a sio:SIO_001013, obo:NCIT_C25150 .
+    ?sex_startdate a sio:SIO_000031 .
+    ?sex_enddate a sio:SIO_000032 .
+
+    #OPTIONAL{?sex_event a obo:NCIT_C25499 ; sio:SIO_000300 ?sex_event_id.}
+
+    ?sex_timeline a obo:NCIT_C54576, sio:SIO_000417; sio:SIO_000332 ?sex_individual .
+    ?sex_individual a sio:SIO_000498 ; sio:SIO_000671 ?sex_individual_identifier .       
+    ?sex_individual_identifier a sio:SIO_000115 ; sio:SIO_000300 ?person_id .
+}

@@ -1,0 +1,8 @@
+care2omop/tests/__pycache__
+care2omop/tests/.pytest_cache
+care2omop/configuration.yaml
+.pytest_cache
+dist
+care2omop.egg-info
+care2omop/__pycache__
+care2omop/api/__pycache__
