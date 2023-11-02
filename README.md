@@ -1,0 +1,2 @@
+# CARE2OMOP
+Mapping CARE-SM to OMOP-CDM
