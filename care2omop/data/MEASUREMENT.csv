@@ -1,140 +1,168 @@
-measurement_id,person_id,measurement_concept_id,measurement_date,measurement_datetime,measurement_time,operator_concept_id,value_as_number,value_as_concept_id,unit_concept_id,range_low,range_high,provider_id,visit_occurrence_id,visit_detail_id,measurement_source_value,measurement_source_conept_id,unit_source_value,value_source_value
-20230802190250151323,50012001,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250151469,50012002,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250151586,50012003,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250151703,50012004,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250151819,50012005,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250151930,50012006,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250152040,50012007,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250152274,50012009,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250152377,50012010,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250152487,50012011,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250152583,50012012,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250152694,50012013,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250152797,50012014,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250152906,50012015,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250153044,50012016,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250153168,50012017,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250153760,50012023,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250153856,50012024,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250153966,50012025,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250154083,50012026,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250154193,50012027,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250154283,50012028,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250154401,50012029,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250154608,50012031,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250154904,50012034,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250155021,50012035,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250155118,50012036,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250155222,50012037,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250155339,50012038,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250155472,50012039,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250155568,50012040,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250155693,50012041,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250156011,50012044,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250156141,50012045,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250156362,50012047,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250156624,50012050,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250156831,50012052,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250156958,50012053,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250157069,50012054,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250157372,50012057,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250157497,50012058,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250157776,50012061,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250157873,50012062,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250157976,50012063,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250158068,50012064,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250158429,50012068,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250158601,50012070,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250158721,50012071,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250159282,50012076,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250159602,50012079,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250159853,50012081,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250159964,50012082,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250160070,50012083,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250160187,50012084,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250160312,50012085,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250160431,50012086,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250160542,50012087,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250160646,50012088,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161063,50012092,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161155,50012093,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161270,50012094,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161381,50012095,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161495,50012096,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161621,50012097,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161732,50012098,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161849,50012099,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250161989,50012100,,,,,,601556,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C103223,,,
-20230802190250151344,50012001,,,,,,138,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250151483,50012002,,,,,,415,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250151599,50012003,,,,,,119,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250151717,50012004,,,,,,478,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250151833,50012005,,,,,,282,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250151944,50012006,,,,,,268,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250152054,50012007,,,,,,432,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250152171,50012008,,,,,,100,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250152288,50012009,,,,,,392,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250152391,50012010,,,,,,56,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250152597,50012012,,,,,,112,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250152810,50012014,,,,,,403,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250152920,50012015,,,,,,359,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250153058,50012016,,,,,,353,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250153276,50012018,,,,,,327,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250153373,50012019,,,,,,70,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250153470,50012020,,,,,,338,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250153656,50012022,,,,,,290,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250153870,50012024,,,,,,137,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250153987,50012025,,,,,,379,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250154097,50012026,,,,,,398,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250154297,50012028,,,,,,376,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250154490,50012030,,,,,,299,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250154704,50012032,,,,,,109,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250154807,50012033,,,,,,289,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250154917,50012034,,,,,,269,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250155132,50012036,,,,,,283,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250155235,50012037,,,,,,447,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250155353,50012038,,,,,,162,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250155589,50012040,,,,,,130,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250155714,50012041,,,,,,426,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250155817,50012042,,,,,,323,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250156024,50012044,,,,,,494,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250156155,50012045,,,,,,128,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250156251,50012046,,,,,,225,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250156444,50012048,,,,,,459,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250156541,50012049,,,,,,426,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250156645,50012050,,,,,,199,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250156845,50012052,,,,,,313,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250156972,50012053,,,,,,396,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250157083,50012054,,,,,,111,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250157273,50012056,,,,,,391,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250157386,50012057,,,,,,323,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250157511,50012058,,,,,,190,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250158615,50012070,,,,,,103,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250158734,50012071,,,,,,362,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250158845,50012072,,,,,,135,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250158949,50012073,,,,,,490,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159068,50012074,,,,,,152,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159185,50012075,,,,,,90,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159296,50012076,,,,,,137,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159408,50012077,,,,,,444,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159505,50012078,,,,,,79,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159622,50012079,,,,,,348,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159749,50012080,,,,,,387,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159867,50012081,,,,,,298,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250159978,50012082,,,,,,68,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250160084,50012083,,,,,,317,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250160201,50012084,,,,,,170,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250160325,50012085,,,,,,264,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250160445,50012086,,,,,,318,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250160556,50012087,,,,,,156,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250160660,50012088,,,,,,463,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250160786,50012089,,,,,,308,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250161176,50012093,,,,,,57,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250161284,50012094,,,,,,134,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250161395,50012095,,,,,,212,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250161509,50012096,,,,,,345,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250161635,50012097,,,,,,493,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250161746,50012098,,,,,,167,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250161863,50012099,,,,,,386,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
-20230802190250162003,50012100,,,,,,355,,,,,,,,http://purl.obolibrary.org/obo/NCIT_C105949,,http://purl.obolibrary.org/obo/UO_0010003,
+measurement_id,person_id,measurement_concept_id,measurement_date,measurement_datetime,measurement_time,measurement_type_concept_id,operator_concept_id,value_as_number,value_as_concept_id,unit_concept_id,range_low,range_high,provider_id,visit_occurrence_id,visit_detail_id,measurement_source_value,measurement_source_concept_id,unit_source_value,value_source_value
+20240119142241150054,50012001,,1998-06-30,1998-06-30 00:00:00,,32879,,,,,,,,788455685,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241150207,50012002,,2008-07-10,2008-07-10 00:00:00,,32879,,,,,,,,788455686,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241150340,50012003,,1995-06-24,1995-06-24 00:00:00,,32879,,,,,,,,788455687,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241150466,50012004,,2006-02-06,2006-02-06 00:00:00,,32879,,,,,,,,788455688,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241150592,50012005,,2014-03-18,2014-03-18 00:00:00,,32879,,,,,,,,788455689,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241150712,50012006,,1998-12-09,1998-12-09 00:00:00,,32879,,,,,,,,788455690,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241150831,50012007,,2008-04-26,2008-04-26 00:00:00,,32879,,,,,,,,788455691,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241151076,50012009,,2010-10-03,2010-10-03 00:00:00,,32879,,,,,,,,788455693,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241151188,50012010,,2000-07-26,2000-07-26 00:00:00,,32879,,,,,,,,788455694,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241151308,50012011,,2013-01-15,2013-01-15 00:00:00,,32879,,,,,,,,788455695,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241151415,50012012,,1999-02-25,1999-02-25 00:00:00,,32879,,,,,,,,788455696,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241151534,50012013,,2008-10-25,2008-10-25 00:00:00,,32879,,,,,,,,788455697,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241151646,50012014,,1991-12-01,1991-12-01 00:00:00,,32879,,,,,,,,788455698,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241151766,50012015,,2007-07-08,2007-07-08 00:00:00,,32879,,,,,,,,788455699,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241151913,50012016,,1995-03-26,1995-03-26 00:00:00,,32879,,,,,,,,788455700,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241152047,50012017,,2011-11-11,2011-11-11 00:00:00,,32879,,,,,,,,788455701,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241152674,50012023,,2010-10-14,2010-10-14 00:00:00,,32879,,,,,,,,788455707,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241152781,50012024,,1993-02-20,1993-02-20 00:00:00,,32879,,,,,,,,788455708,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241152951,50012025,,2007-05-03,2007-05-03 00:00:00,,32879,,,,,,,,788455709,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241153077,50012026,,1994-09-19,1994-09-19 00:00:00,,32879,,,,,,,,788455710,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241153195,50012027,,2009-06-18,2009-06-18 00:00:00,,32879,,,,,,,,788455711,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241153293,50012028,,1994-02-02,1994-02-02 00:00:00,,32879,,,,,,,,788455712,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241153417,50012029,,2010-04-27,2010-04-27 00:00:00,,32879,,,,,,,,788455713,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241153633,50012031,,2012-04-15,2012-04-15 00:00:00,,32879,,,,,,,,788455715,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241153941,50012034,,1993-01-08,1993-01-08 00:00:00,,32879,,,,,,,,788455718,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241154066,50012035,,2010-09-07,2010-09-07 00:00:00,,32879,,,,,,,,788455719,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241154171,50012036,,1994-05-06,1994-05-06 00:00:00,,32879,,,,,,,,788455720,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241154285,50012037,,2007-12-22,2007-12-22 00:00:00,,32879,,,,,,,,788455721,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241154414,50012038,,1994-08-10,1994-08-10 00:00:00,,32879,,,,,,,,788455722,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241154551,50012039,,2010-11-30,2010-11-30 00:00:00,,32879,,,,,,,,788455723,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241154656,50012040,,1997-01-29,1997-01-29 00:00:00,,32879,,,,,,,,788455724,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241154786,50012041,,2009-05-21,2009-05-21 00:00:00,,32879,,,,,,,,788455725,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241155113,50012044,,1997-03-17,1997-03-17 00:00:00,,32879,,,,,,,,788455728,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241155250,50012045,,2008-06-23,2008-06-23 00:00:00,,32879,,,,,,,,788455729,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241155477,50012047,,2011-03-06,2011-03-06 00:00:00,,32879,,,,,,,,788455731,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241155777,50012050,,1994-08-12,1994-08-12 00:00:00,,32879,,,,,,,,788455734,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241155993,50012052,,1994-07-20,1994-07-20 00:00:00,,32879,,,,,,,,788455736,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241156123,50012053,,2007-06-12,2007-06-12 00:00:00,,32879,,,,,,,,788455737,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241156241,50012054,,1993-03-07,1993-03-07 00:00:00,,32879,,,,,,,,788455738,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241156548,50012057,,1997-03-12,1997-03-12 00:00:00,,32879,,,,,,,,788455741,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241156678,50012058,,2000-05-13,2000-05-13 00:00:00,,32879,,,,,,,,788455742,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241156964,50012061,,1992-11-20,1992-11-20 00:00:00,,32879,,,,,,,,788455745,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241157068,50012062,,1997-01-20,1997-01-20 00:00:00,,32879,,,,,,,,788455746,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241157179,50012063,,2000-03-22,2000-03-22 00:00:00,,32879,,,,,,,,788455747,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241157276,50012064,,1994-05-24,1994-05-24 00:00:00,,32879,,,,,,,,788455748,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241157647,50012068,,2000-02-01,2000-02-01 00:00:00,,32879,,,,,,,,788455752,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241157830,50012070,,1998-06-04,1998-06-04 00:00:00,,32879,,,,,,,,788455754,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241157954,50012071,,1992-08-08,1992-08-08 00:00:00,,32879,,,,,,,,788455755,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241158525,50012076,,1993-06-17,1993-06-17 00:00:00,,32879,,,,,,,,788455760,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241158851,50012079,,1994-12-23,1994-12-23 00:00:00,,32879,,,,,,,,788455763,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241159106,50012081,,1993-04-27,1993-04-27 00:00:00,,32879,,,,,,,,788455765,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241159224,50012082,,1997-06-29,1997-06-29 00:00:00,,32879,,,,,,,,788455766,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241159334,50012083,,2000-09-03,2000-09-03 00:00:00,,32879,,,,,,,,788455767,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241159458,50012084,,1993-11-02,1993-11-02 00:00:00,,32879,,,,,,,,788455768,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241159588,50012085,,1998-12-07,1998-12-07 00:00:00,,32879,,,,,,,,788455769,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241159712,50012086,,1992-03-08,1992-03-08 00:00:00,,32879,,,,,,,,788455770,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241159828,50012087,,1997-05-08,1997-05-08 00:00:00,,32879,,,,,,,,788455771,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241159939,50012088,,2000-07-11,2000-07-11 00:00:00,,32879,,,,,,,,788455772,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241160362,50012092,,1998-03-19,1998-03-19 00:00:00,,32879,,,,,,,,788455776,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241160459,50012093,,2001-05-23,2001-05-23 00:00:00,,32879,,,,,,,,788455777,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241160576,50012094,,1995-07-23,1995-07-23 00:00:00,,32879,,,,,,,,788455778,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241160693,50012095,,1999-09-24,1999-09-24 00:00:00,,32879,,,,,,,,788455779,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241160816,50012096,,1993-11-27,1993-11-27 00:00:00,,32879,,,,,,,,788455780,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241160947,50012097,,1999-01-29,1999-01-29 00:00:00,,32879,,,,,,,,788455781,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241161064,50012098,,1992-03-01,1992-03-01 00:00:00,,32879,,,,,,,,788455782,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241161181,50012099,,1997-05-04,1997-05-04 00:00:00,,32879,,,,,,,,788455783,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241161311,50012100,,2000-08-05,2000-08-05 00:00:00,,32879,,,,,,,,788455784,,,http://purl.obolibrary.org/obo/NCIT_C45766,,https://www.ncbi.nlm.nih.gov/nuccore/NM_001128164.2
+20240119142241150114,50012001,4245997,2011-03-15,2011-03-15 00:00:00,,32879,,29.3,,,,,,22225154,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241150254,50012002,4245997,2018-04-25,2018-04-25 00:00:00,,32879,,19.7,,,,,,22225155,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241150386,50012003,4245997,2008-03-10,2008-03-10 00:00:00,,32879,,26.5,,,,,,22225156,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241150512,50012004,4245997,2018-11-23,2018-11-23 00:00:00,,32879,,20.1,,,,,,22225157,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241150639,50012005,4245997,2021-12-02,2021-12-02 00:00:00,,32879,,21.8,,,,,,22225158,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241150758,50012006,4245997,2012-11-25,2012-11-25 00:00:00,,32879,,30.4,,,,,,22225159,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241150878,50012007,4245997,2019-03-11,2019-03-11 00:00:00,,32879,,31.2,,,,,,22225160,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151003,50012008,4245997,2009-03-27,2009-03-27 00:00:00,,32879,,18.9,,,,,,22225161,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151122,50012009,4245997,2020-09-18,2020-09-18 00:00:00,,32879,,23.6,,,,,,22225162,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151235,50012010,4245997,2012-11-09,2012-11-09 00:00:00,,32879,,16.7,,,,,,22225163,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151335,50012011,4245997,2022-02-28,2022-02-28 00:00:00,,32879,,17.2,,,,,,22225164,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151461,50012012,4245997,2013-02-10,2013-02-10 00:00:00,,32879,,33.9,,,,,,22225165,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151567,50012013,4245997,2019-12-09,2019-12-09 00:00:00,,32879,,24.8,,,,,,22225166,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151693,50012014,4245997,2003-03-16,2003-03-16 00:00:00,,32879,,22.6,,,,,,22225167,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151820,50012015,4245997,2018-08-23,2018-08-23 00:00:00,,32879,,28.5,,,,,,22225168,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241151966,50012016,4245997,2006-07-10,2006-07-10 00:00:00,,32879,,34.3,,,,,,22225169,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241152073,50012017,4245997,2022-12-26,2022-12-26 00:00:00,,32879,,15.9,,,,,,22225170,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241152187,50012018,4245997,2006-11-11,2006-11-11 00:00:00,,32879,,32.1,,,,,,22225171,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241152287,50012019,4245997,2019-08-12,2019-08-12 00:00:00,,32879,,27.4,,,,,,22225172,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241152401,50012020,4245997,2005-12-26,2005-12-26 00:00:00,,32879,,19.3,,,,,,22225173,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241152487,50012021,4245997,2022-02-28,2022-02-28 00:00:00,,32879,,31.6,,,,,,22225174,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241152594,50012022,4245997,2007-07-31,2007-07-31 00:00:00,,32879,,25.7,,,,,,22225175,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241152707,50012023,4245997,2021-11-29,2021-11-29 00:00:00,,32879,,20.8,,,,,,22225176,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241152827,50012024,4245997,2004-06-04,2004-06-04 00:00:00,,32879,,18.6,,,,,,22225177,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153005,50012025,4245997,2018-08-18,2018-08-18 00:00:00,,32879,,21.4,,,,,,22225178,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153123,50012026,4245997,2005-12-03,2005-12-03 00:00:00,,32879,,17.5,,,,,,22225179,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153221,50012027,4245997,2021-10-02,2021-10-02 00:00:00,,32879,,30.8,,,,,,22225180,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153339,50012028,4245997,2005-05-18,2005-05-18 00:00:00,,32879,,28.4,,,,,,22225181,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153444,50012029,4245997,2021-08-11,2021-08-11 00:00:00,,32879,,16.3,,,,,,22225182,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153548,50012030,4245997,2005-04-08,2005-04-08 00:00:00,,32879,,26.9,,,,,,22225183,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153660,50012031,4245997,2023-07-30,2023-07-30 00:00:00,,32879,,23.1,,,,,,22225184,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153765,50012032,4245997,2007-02-04,2007-02-04 00:00:00,,32879,,22.8,,,,,,22225185,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153869,50012033,4245997,2017-08-17,2017-08-17 00:00:00,,32879,,33.1,,,,,,22225186,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241153987,50012034,4245997,2004-04-23,2004-04-23 00:00:00,,32879,,27.8,,,,,,22225187,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241154099,50012035,4245997,2022-01-21,2022-01-21 00:00:00,,32879,,24.1,,,,,,22225188,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241154217,50012036,4245997,2005-08-21,2005-08-21 00:00:00,,32879,,29.2,,,,,,22225189,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241154342,50012037,4245997,2019-03-07,2019-03-07 00:00:00,,32879,,34.2,,,,,,22225190,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241154466,50012038,4245997,2005-11-25,2005-11-25 00:00:00,,32879,,15.4,,,,,,22225191,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241154577,50012039,4245997,2022-03-14,2022-03-14 00:00:00,,32879,,32.7,,,,,,22225192,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241154708,50012040,4245997,2008-05-13,2008-05-13 00:00:00,,32879,,19.5,,,,,,22225193,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241154845,50012041,4245997,2020-09-04,2020-09-04 00:00:00,,32879,,31.3,,,,,,22225194,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241154943,50012042,4245997,2005-06-30,2005-06-30 00:00:00,,32879,,25.1,,,,,,22225195,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155041,50012043,4245997,2021-03-17,2021-03-17 00:00:00,,32879,,21.2,,,,,,22225196,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155165,50012044,4245997,2008-06-30,2008-06-30 00:00:00,,32879,,17.8,,,,,,22225197,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155296,50012045,4245997,2019-09-07,2019-09-07 00:00:00,,32879,,30.2,,,,,,22225198,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155393,50012046,4245997,2005-10-02,2005-10-02 00:00:00,,32879,,18.4,,,,,,22225199,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155503,50012047,4245997,2022-06-20,2022-06-20 00:00:00,,32879,,22.3,,,,,,22225200,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155607,50012048,4245997,2006-04-09,2006-04-09 00:00:00,,32879,,23.7,,,,,,22225201,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155719,50012049,4245997,2020-08-30,2020-08-30 00:00:00,,32879,,16.5,,,,,,22225202,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155836,50012050,4245997,2005-11-26,2005-11-26 00:00:00,,32879,,26.1,,,,,,22225203,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241155928,50012051,4245997,2023-05-09,2023-05-09 00:00:00,,32879,,27.2,,,,,,22225204,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156039,50012052,4245997,2005-11-03,2005-11-03 00:00:00,,32879,,20.5,,,,,,22225205,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156169,50012053,4245997,2018-09-26,2018-09-26 00:00:00,,32879,,29.7,,,,,,22225206,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156287,50012054,4245997,2004-06-20,2004-06-20 00:00:00,,32879,,33.8,,,,,,22225207,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156372,50012055,4245997,2022-01-17,2022-01-17 00:00:00,,32879,,24.3,,,,,,22225208,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156476,50012056,4245997,2001-09-13,2001-09-13 00:00:00,,32879,,15.6,,,,,,22225209,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156600,50012057,4245997,2006-12-21,2006-12-21 00:00:00,,32879,,34.7,,,,,,22225210,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156723,50012058,4245997,2010-02-19,2010-02-19 00:00:00,,32879,,31.8,,,,,,22225211,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156808,50012059,4245997,2002-04-19,2002-04-19 00:00:00,,32879,,19.9,,,,,,22225212,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156899,50012060,4245997,2008-06-21,2008-06-21 00:00:00,,32879,,25.9,,,,,,22225213,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241156990,50012061,4245997,2002-08-28,2002-08-28 00:00:00,,32879,,21.1,,,,,,22225214,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157101,50012062,4245997,2006-10-27,2006-10-27 00:00:00,,32879,,23.5,,,,,,22225215,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157205,50012063,4245997,2009-12-28,2009-12-28 00:00:00,,32879,,17.6,,,,,,22225216,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157309,50012064,4245997,2004-02-29,2004-02-29 00:00:00,,32879,,16.2,,,,,,22225217,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157400,50012065,4245997,2008-05-02,2008-05-02 00:00:00,,32879,,30.7,,,,,,22225218,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157485,50012066,4245997,2002-06-04,2002-06-04 00:00:00,,32879,,18.7,,,,,,22225219,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157575,50012067,4245997,2006-09-06,2006-09-06 00:00:00,,32879,,26.3,,,,,,22225220,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157673,50012068,4245997,2009-11-08,2009-11-08 00:00:00,,32879,,22.2,,,,,,22225221,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157758,50012069,4245997,2004-01-09,2004-01-09 00:00:00,,32879,,29.4,,,,,,22225222,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241157876,50012070,4245997,2008-03-12,2008-03-12 00:00:00,,32879,,32.4,,,,,,22225223,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158000,50012071,4245997,2002-05-15,2002-05-15 00:00:00,,32879,,27.1,,,,,,22225224,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158110,50012072,4245997,2006-07-18,2006-07-18 00:00:00,,32879,,24.6,,,,,,22225225,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158222,50012073,4245997,2009-09-17,2009-09-17 00:00:00,,32879,,33.6,,,,,,22225226,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158335,50012074,4245997,2003-11-20,2003-11-20 00:00:00,,32879,,20.7,,,,,,22225227,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158453,50012075,4245997,2008-01-21,2008-01-21 00:00:00,,32879,,15.8,,,,,,22225228,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158577,50012076,4245997,2003-03-23,2003-03-23 00:00:00,,32879,,21.9,,,,,,22225229,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158681,50012077,4245997,2007-05-26,2007-05-26 00:00:00,,32879,,31.9,,,,,,22225230,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158779,50012078,4245997,2009-07-27,2009-07-27 00:00:00,,32879,,19.2,,,,,,22225231,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241158904,50012079,4245997,2004-09-29,2004-09-29 00:00:00,,32879,,25.2,,,,,,22225232,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159028,50012080,4245997,2007-11-01,2007-11-01 00:00:00,,32879,,17.1,,,,,,22225233,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159152,50012081,4245997,2003-02-02,2003-02-02 00:00:00,,32879,,23.8,,,,,,22225234,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159269,50012082,4245997,2007-03-05,2007-03-05 00:00:00,,32879,,27.6,,,,,,22225235,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159386,50012083,4245997,2010-06-09,2010-06-09 00:00:00,,32879,,16.4,,,,,,22225236,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159503,50012084,4245997,2003-08-07,2003-08-07 00:00:00,,32879,,34.9,,,,,,22225237,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159634,50012085,4245997,2008-09-13,2008-09-13 00:00:00,,32879,,29.8,,,,,,22225238,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159757,50012086,4245997,2001-12-14,2001-12-14 00:00:00,,32879,,22.9,,,,,,22225239,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159874,50012087,4245997,2007-02-13,2007-02-13 00:00:00,,32879,,24.7,,,,,,22225240,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241159991,50012088,4245997,2010-04-17,2010-04-17 00:00:00,,32879,,18.3,,,,,,22225241,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160107,50012089,4245997,2004-06-19,2004-06-19 00:00:00,,32879,,26.4,,,,,,22225242,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160198,50012090,4245997,2007-08-22,2007-08-22 00:00:00,,32879,,30.9,,,,,,22225243,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160290,50012091,4245997,2002-10-23,2002-10-23 00:00:00,,32879,,20.6,,,,,,22225244,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160388,50012092,4245997,2007-12-25,2007-12-25 00:00:00,,32879,,33.3,,,,,,22225245,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160511,50012093,4245997,2011-02-28,2011-02-28 00:00:00,,32879,,15.7,,,,,,22225246,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160622,50012094,4245997,2005-04-29,2005-04-29 00:00:00,,32879,,28.6,,,,,,22225247,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160745,50012095,4245997,2009-06-30,2009-06-30 00:00:00,,32879,,31.7,,,,,,22225248,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160868,50012096,4245997,2003-09-03,2003-09-03 00:00:00,,32879,,19.1,,,,,,22225249,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241160992,50012097,4245997,2008-11-06,2008-11-06 00:00:00,,32879,,21.7,,,,,,22225250,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241161116,50012098,4245997,2001-12-07,2001-12-07 00:00:00,,32879,,27.3,,,,,,22225251,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241161233,50012099,4245997,2007-02-10,2007-02-10 00:00:00,,32879,,23.2,,,,,,22225252,,,http://purl.obolibrary.org/obo/NCIT_C16358,,
+20240119142241161357,50012100,4245997,2010-05-13,2010-05-13 00:00:00,,32879,,17.3,,,,,,22225253,,,http://purl.obolibrary.org/obo/NCIT_C16358,,

@@ -1,0 +1,50 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ordo: <http://www.orpha.net/ORDO/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT distinct ?measurement_id ?person_id ?measurement_concept_id ?measurement_date ?measurement_datetime ?measurement_time ?measurement_type_concept_id ?operator_concept_id ?value_as_number ?value_as_concept_id ?unit_concept_id ?range_low ?range_high ?provider_id ?visit_occurrence_id ?visit_detail_id ?measurement_source_value ?measurement_source_concept_id ?unit_source_value ?value_source_value
+
+?visit_concept_id ?visit_start_date ?visit_start_datetime ?visit_end_time ?visit_end_datetime ?visit_type_concept_id ?provider_id ?care_site_id ?visit_source_value ?visit_source_concept_id ?admitting_source_concept_id ?admitting_source_value ?discharge_to_concept_id ?discharge_to_source_value ?preceding_visit_occurrence_id
+
+WHERE {
+
+
+    { 
+        SELECT distinct ?person_id ?measurement_source_concept_id ?value_as_number ?unit_source_value ?measurement_id ?visit_start_date ?visit_end_time ?visit_occurrence_id ?measurement_date
+        WHERE{
+        GRAPH ?g {
+            ?role sio:SIO_000356 ?process ;  a sio:SIO_000016 .
+            ?process a sio:SIO_000006, ?process_type; sio:SIO_000229 ?output. FILTER(?process_type != sio:SIO_000006) .
+            ?output sio:SIO_000628 ?attribute; a sio:SIO_000015 , ?output_type .FILTER(?output_type != sio:SIO_000015) .
+            ?attribute a sio:SIO_000614.    
+            ?attribute a ?measurement_source_concept_id. FILTER(?measurement_source_concept_id  != sio:SIO_000614 )
+            ?attribute sio:SIO_000332 ?attribute_type2. FILTER(?attribute_type2 = obo:NCIT_C25447).
+
+
+            ?output sio:SIO_000300 ?value_as_number .   
+            ?output sio:SIO_000221 ?unit.
+            OPTIONAL{?unit a sio:SIO_000074, ?unit_source_value . FILTER(?unit_source_value != sio:SIO_000074)}
+            FILTER(datatype(?value_as_number) = xsd:float || datatype(?value_as_number) = xsd:integer)
+
+        }
+        ?g a obo:NCIT_C62143 ; sio:SIO_000068 ?timeline, ?event ;
+                               sio:SIO_000680 ?startdate;
+                               sio:SIO_000681 ?enddate;
+                               sio:SIO_000300 ?measurement_id .
+
+        ?startdate a sio:SIO_000031 .
+        ?enddate a sio:SIO_000032 .
+
+        ?event a obo:NCIT_C25499 ; sio:SIO_000300 ?visit_occurrence_id.
+
+        ?startdate sio:SIO_000300 ?visit_start_date, ?measurement_date .
+        ?enddate sio:SIO_000300 ?visit_end_time .
+
+        ?timeline a obo:NCIT_C54576, sio:SIO_000417; sio:SIO_000332 ?individual .
+        ?individual a sio:SIO_000498 ; sio:SIO_000671 ?individual_identifier .       
+        ?individual_identifier a sio:SIO_000115 ; sio:SIO_000300 ?person_id .
+            }
+    }
+}
