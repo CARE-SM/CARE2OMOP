@@ -1,0 +1,7 @@
+chevron
+pandas
+datetime
+SPARQLWrapper
+pytest
+uvicorn
+fastapi

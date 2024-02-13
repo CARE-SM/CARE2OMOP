@@ -7,7 +7,6 @@ import sys
 from os import listdir
 from os.path import isfile, join
 
-
 class DataTransformation:
 
     def __init__(self, config: dict):
@@ -72,24 +71,7 @@ class DataTransformation:
     def table_person_transformation(self, df_PERSON):
 
         df_PERSON = df_PERSON.where(pd.notnull(df_PERSON), None)
-        if 'gender_source_value' in df_PERSON.columns:
-            df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C16576', 'gender_concept_id'] = "8532"
-            df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C20197', 'gender_concept_id'] = "8507"
-            df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C124294', 'gender_concept_id'] = "9999"
-            df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C17998', 'gender_concept_id'] = "9999"
-            
-            
-        if 'birth_datetime' in df_PERSON.columns:
-            for index, row in df_PERSON.iterrows():
-                # Create all date-related columns:
-                date_string = df_PERSON["birth_datetime"][index]
-                date = datetime.strptime(date_string, '%Y-%m-%d')  # Changed variable name here
-                time = datetime.min.time()
-                datetime_combined = datetime.combine(date, time)
-                df_PERSON.loc[index, "birth_datetime"] = datetime_combined
-                df_PERSON.loc[index, "year_of_birth"] = datetime_combined.year
-                df_PERSON.loc[index, "month_of_birth"] = datetime_combined.month
-                df_PERSON.loc[index, "day_of_birth"] = datetime_combined.day
+        for index, row in df_PERSON.iterrows():
 
             if row["race_concept_id"] is None:
                 df_PERSON.loc[index, "race_concept_id"] = 0
@@ -97,12 +79,32 @@ class DataTransformation:
             if row["ethnicity_concept_id"] is None:
                 df_PERSON.loc[index, "ethnicity_concept_id"] = 0
 
+            if 'gender_source_value' in df_PERSON.columns:
+                df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C16576', 'gender_concept_id'] = "8532"
+                df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C20197', 'gender_concept_id'] = "8507"
+                df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C124294', 'gender_concept_id'] = "9999"
+                df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C17998', 'gender_concept_id'] = "9999"  
+                
+            if 'birth_datetime' in df_PERSON.columns:
+                date_string = df_PERSON["birth_datetime"][index]
+                date = datetime.strptime(date_string, '%Y-%m-%d')
+                time = datetime.min.time()
+                datetime_combined = datetime.combine(date, time)
+                df_PERSON.loc[index, "birth_datetime"] = datetime_combined
+                df_PERSON.loc[index, "year_of_birth"] = datetime_combined.year
+                df_PERSON.loc[index, "month_of_birth"] = datetime_combined.month
+                df_PERSON.loc[index, "day_of_birth"] = datetime_combined.day
+                
         return df_PERSON
 
 
     def table_death_transformation(self,df_DEATH):
-
+        
+        df_DEATH = df_DEATH.where(pd.notnull(df_DEATH), None)
         for index, row in df_DEATH.iterrows():
+
+            if row["death_type_concept_id"] == None:
+                df_DEATH.at[index, 'death_type_concept_id'] = 32879
 
             date_string = df_DEATH["death_date"][index]
             date_calculated = self.date_to_datetime(date_string)
@@ -126,6 +128,9 @@ class DataTransformation:
 
             if row["visit_concept_id"] == None:
                 df_CONDITION.at[index, 'visit_concept_id'] = 38004515
+                
+            if row["condition_concept_id"] is None:
+                df_CONDITION.loc[index, "condition_concept_id"] = 0
 
             date_string = df_CONDITION["condition_start_date"][index]
             date_calculated = self.date_to_datetime(date_string)
@@ -159,6 +164,9 @@ class DataTransformation:
 
             if row["visit_concept_id"] == None:
                 df_MEASUREMENT.at[index, 'visit_concept_id'] = 38004515
+                
+            if row["measurement_concept_id"] is None:
+                df_MEASUREMENT.loc[index, "measurement_concept_id"] = 0
 
             date_string = df_MEASUREMENT["measurement_date"][index]
             date_calculated = self.date_to_datetime(date_string)
@@ -193,6 +201,9 @@ class DataTransformation:
                 
             if row["observation_type_concept_id"] == None:
                 df_OBSERVATION.at[index, 'observation_type_concept_id'] = 32879
+    
+            if row["observation_concept_id"] is None:
+                df_OBSERVATION.loc[index, "observation_concept_id"] = 0
                            
             date_string = df_OBSERVATION["observation_date"][index]
             date_calculated = self.date_to_datetime(date_string)
@@ -221,7 +232,10 @@ class DataTransformation:
                 df_PROCEDURE.at[index, 'visit_concept_id'] = 38004515
                 
             if row["procedure_type_concept_id"] == None:
-                df_PROCEDURE.at[index, 'procedure_type_concept_id'] = 32879    
+                df_PROCEDURE.at[index, 'procedure_type_concept_id'] = 32879   
+                
+            if row["procedure_concept_id"] is None:
+                df_PROCEDURE.loc[index, "procedure_concept_id"] = 0
                            
             date_string = df_PROCEDURE["procedure_date"][index]
             date_calculated = self.date_to_datetime(date_string)
