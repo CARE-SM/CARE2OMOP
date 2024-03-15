@@ -9,12 +9,13 @@ SELECT distinct ?procedure_occurrence_id ?person_id ?procedure_concept_id ?proce
 WHERE {
     GRAPH ?g {
         ?role sio:SIO_000356 ?process ;  a sio:SIO_000016 .
-        ?process a sio:SIO_000006, ?process_type; sio:SIO_000229 ?procedure_source_value; sio:SIO_000339 ?protocol . FILTER(?process_type != sio:SIO_000006) .
+        ?process a sio:SIO_000006, ?process_type; sio:SIO_000229 ?procedure_source_value .
         ?procedure_source_value sio:SIO_000628 ?attribute; a sio:SIO_000015 .
         FILTER(?process_type = obo:NCIT_C17369)
+        
+		?specific_process sio:SIO_000325  ?process; a sio:SIO_000006, ?procedure_source_concept_id . 
+        FILTER (?procedure_source_concept_id != sio:SIO_000006)
 
-        ?protocol a sio:SIO_001043 ; sio:SIO_000008 ?frequency, ?intensity, ?activity, ?substance, ?concentration, ?route .
-        ?activity a ?procedure_source_concept_id, sio:SIO_000006 . FILTER (?procedure_source_concept_id != sio:SIO_000006)
             
     }
     ?g a obo:NCIT_C62143 ; sio:SIO_000068 ?timeline, ?event ;
