@@ -1,6 +1,6 @@
 from utils import DataTransformation
 import pandas as pd
-
+import yaml
     
 class CARE2OMOP:
     
@@ -18,28 +18,29 @@ class CARE2OMOP:
         procedure_header = ["procedure_occurrence_id", "person_id", "procedure_concept_id", "procedure_date", "procedure_datetime", "procedure_end_date", "procedure_end_datetime", "procedure_type_concept_id", "modifier_concept_id", "quantity", "provider_id", "visit_occurrence_id", "visit_detail_id", "procedure_source_value", "procedure_source_concept_id", "modifier_source_value" ]
         observation_header=["observation_id","person_id","observation_concept_id","observation_date","observation_datetime","observation_type_concept_id","value_as_number","value_as_string","value_as_concept_id","qualifier_concept_id","unit_concept_id","provider_id","visit_occurrence_id","visit_detail_id","observation_source_value","observation_source_concept_id","unit_source_value","qualifier_source_value"]
         drug_header=["drug_exposure_id","person_id","drug_concept_id","drug_exposure_start_date","drug_exposure_start_datetime","drug_exposure_end_date","drug_exposure_end_datetime","verbatim_end_date","drug_type_concept_id","stop_reason","refills","quantity","days_supply","sig","route_concept_id","lot_number","provider_id","visit_occurrence_id","visit_detail_id","drug_source_value","drug_source_concept_id","route_source_value","dose_unit_source_value"]
-
-        extracted_table_person = workflow.extract_table("PERSON")
-        extracted_table_death = workflow.extract_table("DEATH")
-        extracted_table_condition = workflow.extract_table("CONDITION")
-        extracted_table_measurement = workflow.extract_table("MEASUREMENT")
-        extracted_table_observation = workflow.extract_table("OBSERVATION")
-        extracted_table_procedure = workflow.extract_table("PROCEDURE")
-        extracted_table_drug = workflow.extract_table("DRUG")
+        observation_period_header = ["person_id", "observation_period_start_date", "observation_period_end_date", "period_type_concept_id"]
 
         # PERSON
+        extracted_table_person = workflow.extract_table("PERSON")
         transformed_table_person = workflow.table_person_transformation(extracted_table_person)
         transformed_table_person.to_csv("data/PERSON.csv", index = False, header=True)
         print("PERSON table have been created")
 
         # DEATH
+        extracted_table_death = workflow.extract_table("DEATH")
         transformed_table_death = workflow.table_death_transformation(extracted_table_death)
-        selected_cols = [col for col in transformed_table_death.columns if col in death_header]
-        transformed_table_death = pd.DataFrame(transformed_table_death, columns=selected_cols)
+        # selected_cols = [col for col in transformed_table_death.columns if col in death_header]
+        # transformed_table_death = pd.DataFrame(transformed_table_death, columns=selected_cols)
         transformed_table_death.to_csv("data/DEATH.csv", index = False, header=True)
         print("DEATH table have been created")
 
+        extracted_table_observation_period = workflow.extract_table("OBSERVATION-PERIOD")
+        transformed_table_observation_period = workflow.table_observation_period_transformation(extracted_table_observation_period)
+        transformed_table_observation_period.to_csv("data/OBSERVATION_PERIOD.csv", index = False, header=True)
+        print("OBSERVATION_PERIOD table have been created")
+
         # CONDITION
+        extracted_table_condition = workflow.extract_table("CONDITION")
         transformed_table_condition = workflow.table_condition_transformation(extracted_table_condition)
         selected_cols = [col for col in transformed_table_condition.columns if col in condition_header]
         resulting_transformed_table_condition = pd.DataFrame(transformed_table_condition, columns=selected_cols)
@@ -47,6 +48,7 @@ class CARE2OMOP:
         print("CONDITION table have been created")
 
         # MEASUREMENT
+        extracted_table_measurement = workflow.extract_table("MEASUREMENT")
         transformed_table_measurement = workflow.table_measurement_transformation(extracted_table_measurement)
         selected_cols = [col for col in transformed_table_measurement.columns if col in measurement_header]
         resulting_transformed_table_measurement = pd.DataFrame(transformed_table_measurement, columns=selected_cols)
@@ -54,6 +56,7 @@ class CARE2OMOP:
         print("MEASUREMENT table have been created")
 
         # OBSERVATION
+        extracted_table_observation = workflow.extract_table("OBSERVATION_")
         transformed_table_observation = workflow.table_observation_transformation(extracted_table_observation)
         selected_cols = [col for col in transformed_table_observation.columns if col in observation_header]
         resulting_transformed_table_observation = pd.DataFrame(transformed_table_observation, columns=selected_cols)
@@ -61,6 +64,7 @@ class CARE2OMOP:
         print("OBSERVATION table have been created")
 
         # PROCEDURE_OCURRENCE
+        extracted_table_procedure = workflow.extract_table("PROCEDURE")
         transformed_table_procedure = workflow.table_procedure_transformation(extracted_table_procedure)
         selected_cols = [col for col in transformed_table_procedure.columns if col in procedure_header]
         resulting_transformed_table_procedure = pd.DataFrame(transformed_table_procedure, columns=selected_cols)
@@ -68,11 +72,12 @@ class CARE2OMOP:
         print("PROCEDURE_OCURRENCE table have been created")
 
         # DRUG_EXPOSE
+        extracted_table_drug = workflow.extract_table("DRUG")
         transformed_table_drug = workflow.table_drug_transformation(extracted_table_drug)
         selected_cols = [col for col in transformed_table_drug.columns if col in drug_header]
         resulting_transformed_table_drug = pd.DataFrame(transformed_table_drug, columns=selected_cols)
         resulting_transformed_table_drug.to_csv("data/DRUG_EXPOSE.csv", index = False, header=True)
-        print("DRUG_EXPOSE table have been created")
+        print("DRUG_EXPOSE table have been created")        
 
         # VISIT
 
@@ -105,8 +110,8 @@ class CARE2OMOP:
         resulting_tranformed_table_visit.to_csv("data/VISIT.csv", index = False, header=True)
         print("VISIT table have been created")
         
-#    # Import configuration file
-# with open("configuration.yaml") as file:
-#     configuration_file = yaml.load(file, Loader=yaml.FullLoader)     
+   # Import configuration file
+with open("configuration.yaml") as file:
+    configuration_file = yaml.load(file, Loader=yaml.FullLoader)     
     
-# test = CARE2OMOP(configuration_file)
+test = CARE2OMOP(configuration_file)

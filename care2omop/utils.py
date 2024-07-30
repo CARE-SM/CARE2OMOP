@@ -111,6 +111,17 @@ class DataTransformation:
             df_DEATH.at[index, 'death_datetime'] = date_calculated
             
         return df_DEATH
+    
+    
+    def table_observation_period_transformation(self,df_OBSERVATION_PERIOD):
+        
+        df_OBSERVATION_PERIOD = df_OBSERVATION_PERIOD.where(pd.notnull(df_OBSERVATION_PERIOD), None)
+        for index, row in df_OBSERVATION_PERIOD.iterrows():
+
+            if row["period_type_concept_id"] == None:
+                df_OBSERVATION_PERIOD.at[index, 'period_type_concept_id'] = 32879
+            
+        return df_OBSERVATION_PERIOD
 
     def table_condition_transformation(self,df_CONDITION):
 

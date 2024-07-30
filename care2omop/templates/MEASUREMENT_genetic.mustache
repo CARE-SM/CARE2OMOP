@@ -15,13 +15,10 @@ WHERE {
         
             GRAPH ?g {
                 ?role sio:SIO_000356 ?process ; a sio:SIO_000016 .
-                ?process a sio:SIO_000006, ?process_type ; sio:SIO_000229 ?output .
-                FILTER (?process_type = obo:NCIT_C15709)
-                ?output sio:SIO_000628 ?attribute; a sio:SIO_000015 .
-                FILTER(?measurement_source_concept_id = obo:NCIT_C45766) .
-
-                ?process sio:SIO_000291 ?value_source_value .
-                ?value_source_value a sio:SIO_000015, ?measurement_source_concept_id .
+                ?process a sio:SIO_000006, obo:NCIT_C15709 ; sio:SIO_000229 ?output .
+                ?output sio:SIO_000628 ?attribute; a sio:SIO_000015, ?value_source_value . FILTER(?value_source_value != sio:SIO_000015)
+                ?process sio:SIO_000291 ?target .
+                ?target a sio:SIO_000015, ?measurement_source_concept_id . FILTER(?measurement_source_concept_id != sio:SIO_000015) .
         }
         ?g a obo:NCIT_C62143 ; sio:SIO_000068 ?timeline, ?event ;
                                sio:SIO_000680 ?startdate;
