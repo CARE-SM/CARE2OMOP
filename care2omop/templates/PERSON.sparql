@@ -1,0 +1,30 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ordo: <http://www.orpha.net/ORDO/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT distinct ?person_id ?gender_concept_id ?year_of_birth ?month_of_birth ?day_of_birth ?birth_datetime ?race_concept_id ?ethnicity_concept_id ?location_id ?provider_id ?care_site_id ?person_source_value
+ ?gender_source_value ?gender_source_concept_id ?race_source_value ?race_source_concept_id ?ethnicity_source_value ?ethnicity_source_concept_id
+
+WHERE {
+    GRAPH ?dob_g {
+
+        ?dob_id sio:SIO_000020 ?dob_role ; sio:SIO_000300 ?person_id .
+        ?dob_role sio:SIO_000356 ?dob_process ; a sio:SIO_000016 .
+        ?dob_process a sio:SIO_000006; sio:SIO_000229 ?dob_output .
+        ?dob_output sio:SIO_000628 ?dob_attribute; a sio:SIO_000015. 
+        ?dob_attribute a sio:SIO_000614, obo:NCIT_C68615.    
+        ?dob_output sio:SIO_000300 ?birth_datetime.   
+    }
+
+    GRAPH ?sex_g {
+
+        ?sex_id sio:SIO_000020 ?sex_role ; sio:SIO_000300 ?person_id, ?person_source_value.
+        ?sex_role sio:SIO_000356 ?sex_process ; a sio:SIO_000016 .
+        ?sex_process a sio:SIO_000006; sio:SIO_000229 ?sex_output.
+        ?sex_output sio:SIO_000628 ?sex_attribute; a sio:SIO_000015, obo:NCIT_C160908. 
+        ?sex_attribute a sio:SIO_000614,?gender_source_value . 
+        FILTER (?gender_source_value != sio:SIO_000614)
+    }
+}
