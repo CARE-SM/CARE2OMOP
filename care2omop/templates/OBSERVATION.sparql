@@ -5,9 +5,44 @@ PREFIX ordo: <http://www.orpha.net/ORDO/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 
-SELECT distinct ?observation_id ?person_id ?observation_concept_id ?observation_date ?observation_datetime ?observation_type_concept_id ?value_as_number ?value_as_string ?value_as_concept_id ?qualifier_concept_id ?unit_concept_id ?provider_id ?visit_occurrence_id ?visit_detail_id ?observation_source_value ?observation_source_concept_id ?unit_source_value ?qualifier_source_value
+SELECT DISTINCT
 
-?visit_concept_id ?visit_start_date ?visit_start_datetime ?visit_end_time ?visit_end_datetime ?visit_type_concept_id ?provider_id ?care_site_id ?visit_source_value ?visit_source_concept_id ?admitting_source_concept_id ?admitting_source_value ?discharge_to_concept_id ?discharge_to_source_value ?preceding_visit_occurrence_id
+  ?observation_id
+  ?person_id
+  ?observation_concept_id
+  ?observation_date
+  ?observation_datetime
+  ?observation_type_concept_id
+  ?value_as_number
+  ?value_as_string
+  ?value_as_concept_id
+  ?qualifier_concept_id
+  ?unit_concept_id
+  ?provider_id
+  ?visit_occurrence_id
+  ?visit_detail_id
+  ?observation_source_value
+  ?observation_source_concept_id
+  ?unit_source_value
+  ?qualifier_source_value
+  ?value_source_value
+  ?observation_event_id
+  ?obs_event_field_concept_id
+
+  ?visit_concept_id
+  ?visit_start_date
+  ?visit_start_datetime
+  ?visit_end_date
+  ?visit_end_datetime
+  ?visit_type_concept_id
+  ?care_site_id
+  ?visit_source_value
+  ?visit_source_concept_id
+  ?admitted_from_concept_id
+  ?admitted_from_source_value
+  ?discharged_to_concept_id
+  ?discharged_to_source_value
+  ?preceding_visit_occurrence_id
 
 WHERE {
     GRAPH ?g { # Participation Status
@@ -31,6 +66,6 @@ WHERE {
     ?event a sio:SIO_000088 ; sio:SIO_000300 ?visit_occurrence_id .
         
     ?startdate sio:SIO_000300 ?condition_start_date, ?visit_start_date, ?observation_date .
-    ?enddate sio:SIO_000300 ?condition_end_date , ?visit_end_time .
+    ?enddate sio:SIO_000300 ?condition_end_date , ?visit_end_date .
 
     }

@@ -1,300 +1,178 @@
-import chevron
-from auth import ServerConnection
-import pandas as pd
-from datetime import date, datetime
-import io
+import os
 import sys
-from os import listdir
-from os.path import isfile, join
+import pandas as pd
+from SPARQLWrapper import SPARQLWrapper, CSV
+from io import StringIO
 
-class DataTransformation:
 
-    def __init__(self, config: dict):
+class Workflow:
+    def __init__(self, endpoint, format_dir):
+        self.endpoint = endpoint
+        self.format_dir = format_dir
 
-        self.server_configuration = ServerConnection(config)
-        self.query_configuration = self.server_configuration.query_connection()
+    # -----------------------------
+    # Helpers
+    # -----------------------------
+    @staticmethod
+    def fillna_defaults(df, defaults: dict):
+        """Rellena valores nulos en columnas con valores por defecto."""
+        for col, val in defaults.items():
+            if col in df.columns:
+                df[col] = df[col].fillna(val)
+        return df
 
+    @staticmethod
+    def convert_dates(df, date_cols: list):
+        """Convierte columnas de fecha a datetime."""
+        for col in date_cols:
+            if col in df.columns:
+                df[col] = pd.to_datetime(df[col], errors="coerce")
+        return df
+
+    @staticmethod
+    def map_values(df, source_col: str, mapping: dict, target_col: str = None):
+        """Mapea valores de una columna a otra según un diccionario."""
+        if source_col in df.columns:
+            df[target_col or source_col] = df[source_col].map(mapping).fillna(
+                df.get(target_col, df[source_col])
+            )
+        return df
+
+    # -----------------------------
+    # Extracción de tablas
+    # -----------------------------
     def extract_table(self, name):
-        
-        df_final = pd.DataFrame()
-        path = "templates/"
-        format_file = "mustache"
-        
-        ## Search the templates
+        format_files = os.listdir(self.format_dir)
+        dfs = []
+        print(dfs)
 
-        files = [f for f in listdir(path) if isfile(join(path, f))]
-        format_files = [ff for ff in files if ff.endswith(str("." + format_file))]
-        if len(format_files) == 0:
-            sys.exit("No resources are present at {} path with .{} format.".format(path,format))
- 
-        ## For each template, run the query:
-        
         for file in format_files:
-
             if file.startswith(name):
-                
-                full_path = path + file
-                
-                with open(full_path, 'r') as f:
-                    mustache_template = chevron.render(f, {})
-                    
-                self.query_configuration.setQuery(mustache_template)
-                result = self.query_configuration.query()
+                with open(os.path.join(self.format_dir, file), "r") as q:
+                    query = q.read()
+                    sparql = SPARQLWrapper(self.endpoint)
+                    sparql.setQuery(query)
+                    sparql.setReturnFormat(CSV)
+                    result = sparql.query()
 
-                if result.response.status == 200:
-                    print("Query succeeded!")
-                else:
-                    sys.exit("Query failed with status code:", result.response.status)
+                    if result.response.status != 200:
+                        sys.exit(
+                            f"Query failed with status code: {result.response.status}"
+                        )
 
-                result = result.convert()
+                    df = pd.read_csv(StringIO(result.response.read().decode("utf-8")))
+                    dfs.append(df)
 
-                if isinstance(result, list):
-                    result_csv = io.StringIO(result[1])
-                else:
-                    result_csv = io.StringIO(result.decode('utf-8'))
-                    
-                df_result = pd.read_csv(result_csv)
-                df_final = pd.concat([df_final, df_result])
-                df_final = df_final.reset_index(drop=True)
+        return pd.concat(dfs, ignore_index=True) if dfs else pd.DataFrame()
 
+    # -----------------------------
+    # Transformaciones específicas
+    # -----------------------------
+    def table_person_transformation(self, df):
+        df = df.copy()
+        df = self.fillna_defaults(
+            df,
+            {
+                "race_concept_id": 0,
+                "ethnicity_concept_id": 0,
+                "race_source_value": "NA",
+                "ethnicity_source_value": "NA",
+            },
+        )
 
-        return df_final
-    
-    
-    def date_to_datetime(self,date_input):
-        if date_input:
-            date = datetime.strptime(date_input, '%Y-%m-%d')
-            time = datetime.min.time()
-            datetime_final = datetime.combine(date, time)
-            return datetime_final
+        # Mapear género
+        gender_map = {
+            "http://purl.obolibrary.org/obo/NCIT_C20197": 8507,  # Male
+            "http://purl.obolibrary.org/obo/NCIT_C16576": 8532,  # Female
+        }
+        df = self.map_values(df, "gender_source_value", gender_map, "gender_concept_id")
 
-    def table_person_transformation(self, df_PERSON):
+        # Fechas de nacimiento
+        df = self.convert_dates(df, ["birth_datetime"])
+        if "birth_datetime" in df.columns:
+            df["year_of_birth"] = df["birth_datetime"].dt.year
+            df["month_of_birth"] = df["birth_datetime"].dt.month
+            df["day_of_birth"] = df["birth_datetime"].dt.day
 
-        df_PERSON = df_PERSON.where(pd.notnull(df_PERSON), None)
-        for index, row in df_PERSON.iterrows():
+        return df
 
-            if row["race_concept_id"] is None:
-                df_PERSON.loc[index, "race_concept_id"] = 0
+    def table_death_transformation(self, df):
+        df = df.copy()
+        df = self.convert_dates(df, ["death_date"])
+        if "death_date" in df.columns:
+            df["death_datetime"] = df["death_date"]
+        return df
 
-            if row["ethnicity_concept_id"] is None:
-                df_PERSON.loc[index, "ethnicity_concept_id"] = 0
+    def table_condition_transformation(self, df):
+        df = df.copy()
+        df = self.fillna_defaults(df, {"condition_type_concept_id": 32879})
+        df = self.convert_dates(df, ["condition_start_date", "condition_end_date", "visit_start_date", "visit_end_time"]) 
+        if "condition_start_date" in df.columns:
+            df["condition_start_datetime"] = df["condition_start_date"]
+        if "condition_end_date" in df.columns:
+            df["condition_end_datetime"] = df["condition_end_date"]
+        # Normalizar visit start/end
+        if "visit_start_date" in df.columns:
+            df["visit_start_datetime"] = df["visit_start_date"]
+        if "visit_end_time" in df.columns:
+            df["visit_end_datetime"] = df["visit_end_date"]
+        return df
 
-            if 'gender_source_value' in df_PERSON.columns:
-                df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C16576', 'gender_concept_id'] = "8532"
-                df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C20197', 'gender_concept_id'] = "8507"
-                df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C124294', 'gender_concept_id'] = "9999"
-                df_PERSON.loc[df_PERSON.gender_source_value == 'http://purl.obolibrary.org/obo/NCIT_C17998', 'gender_concept_id'] = "9999"  
-                
-            if 'birth_datetime' in df_PERSON.columns:
-                date_string = df_PERSON["birth_datetime"][index]
-                date = datetime.strptime(date_string, '%Y-%m-%d')
-                time = datetime.min.time()
-                datetime_combined = datetime.combine(date, time)
-                df_PERSON.loc[index, "birth_datetime"] = datetime_combined
-                df_PERSON.loc[index, "year_of_birth"] = datetime_combined.year
-                df_PERSON.loc[index, "month_of_birth"] = datetime_combined.month
-                df_PERSON.loc[index, "day_of_birth"] = datetime_combined.day
-                
-        return df_PERSON
+    def table_measurement_transformation(self, df):
+        df = df.copy()
+        df = self.fillna_defaults(df, {"measurement_type_concept_id": 32879})
+        df = self.convert_dates(df, ["measurement_date", "visit_start_date", "visit_end_time"]) 
+        if "measurement_date" in df.columns:
+            df["measurement_datetime"] = df["measurement_date"]
+        if "visit_start_date" in df.columns:
+            df["visit_start_datetime"] = df["visit_start_date"]
+        if "visit_end_time" in df.columns:
+            df["visit_end_datetime"] = df["visit_end_date"]
 
+        # Ejemplo de mapeo de measurement_source_concept_id (si es URI -> map a concepto OMOP)
+        if "measurement_source_concept_id" in df.columns:
+            df.loc[df.measurement_source_concept_id == 'http://purl.obolibrary.org/obo/NCIT_C16358', 'measurement_concept_id'] = 4245997
+            df.loc[df.measurement_source_concept_id == 'http://purl.obolibrary.org/obo/NCIT_C25347', 'measurement_concept_id'] = 903133
+            df.loc[df.measurement_source_concept_id == 'http://purl.obolibrary.org/obo/NCIT_C25208', 'measurement_concept_id'] = 903121
 
-    def table_death_transformation(self,df_DEATH):
-        
-        df_DEATH = df_DEATH.where(pd.notnull(df_DEATH), None)
-        for index, row in df_DEATH.iterrows():
+        return df
 
-            if row["death_type_concept_id"] == None:
-                df_DEATH.at[index, 'death_type_concept_id'] = 32879
+    def table_observation_transformation(self, df):
+        df = df.copy()
+        df = self.fillna_defaults(df, {"observation_type_concept_id": 32879})
+        df = self.convert_dates(df, ["observation_date", "visit_start_date", "visit_end_time"]) 
+        if "observation_date" in df.columns:
+            df["observation_datetime"] = df["observation_date"]
+        if "visit_start_date" in df.columns:
+            df["visit_start_datetime"] = df["visit_start_date"]
+        if "visit_end_time" in df.columns:
+            df["visit_end_datetime"] = df["visit_end_date"]
+        return df
 
-            date_string = df_DEATH["death_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_DEATH.at[index, 'death_datetime'] = date_calculated
-            
-        return df_DEATH
-    
-    
-    def table_observation_period_transformation(self,df_OBSERVATION_PERIOD):
-        
-        df_OBSERVATION_PERIOD = df_OBSERVATION_PERIOD.where(pd.notnull(df_OBSERVATION_PERIOD), None)
-        for index, row in df_OBSERVATION_PERIOD.iterrows():
+    def table_drug_exposure_transformation(self, df):
+        df = df.copy()
+        df = self.fillna_defaults(df, {"drug_type_concept_id": 32879})
+        df = self.convert_dates(df, ["drug_exposure_start_date", "drug_exposure_end_date", "visit_start_date", "visit_end_time"]) 
+        if "drug_exposure_start_date" in df.columns:
+            df["drug_exposure_start_datetime"] = df["drug_exposure_start_date"]
+        if "drug_exposure_end_date" in df.columns:
+            df["drug_exposure_end_datetime"] = df["drug_exposure_end_date"]
+        if "visit_start_date" in df.columns:
+            df["visit_start_datetime"] = df["visit_start_date"]
+        if "visit_end_time" in df.columns:
+            df["visit_end_datetime"] = df["visit_end_date"]
+        return df
 
-            if row["period_type_concept_id"] == None:
-                df_OBSERVATION_PERIOD.at[index, 'period_type_concept_id'] = 32879
-            
-        return df_OBSERVATION_PERIOD
-
-    def table_condition_transformation(self,df_CONDITION):
-
-        df_CONDITION = df_CONDITION.where(pd.notnull(df_CONDITION), None)
-
-        for index, row in df_CONDITION.iterrows():
-            if row["condition_type_concept_id"] == None:
-                df_CONDITION.at[index, 'condition_type_concept_id'] = 32879
-
-            if row["condition_status_concept_id"] == None:
-                df_CONDITION.at[index, 'condition_status_concept_id'] = 32893
-
-            if row["visit_type_concept_id"] == None:
-                df_CONDITION.at[index, 'visit_type_concept_id'] = 32879
-
-            if row["visit_concept_id"] == None:
-                df_CONDITION.at[index, 'visit_concept_id'] = 38004515
-                
-            if row["condition_concept_id"] is None:
-                df_CONDITION.loc[index, "condition_concept_id"] = 0
-
-            date_string = df_CONDITION["condition_start_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_CONDITION.at[index, 'condition_start_datetime'] = date_calculated
-
-            date_string = df_CONDITION["condition_end_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_CONDITION.at[index, 'condition_end_datetime'] = date_calculated
-
-            date_string = df_CONDITION["visit_start_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_CONDITION.at[index, 'visit_start_datetime'] = date_calculated
-
-            date_string = df_CONDITION["visit_end_time"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_CONDITION.at[index, 'visit_end_datetime'] = date_calculated
-
-        return df_CONDITION
-    
-    def table_measurement_transformation(self,df_MEASUREMENT):
-
-        df_MEASUREMENT = df_MEASUREMENT.where(pd.notnull(df_MEASUREMENT), None)
-
-        for index, row in df_MEASUREMENT.iterrows():
-
-            if row["visit_type_concept_id"] == None:
-                df_MEASUREMENT.at[index, 'visit_type_concept_id'] = 32879
-                
-            if row["measurement_type_concept_id"] == None:
-                df_MEASUREMENT.at[index, 'measurement_type_concept_id'] = 32879
-
-            if row["visit_concept_id"] == None:
-                df_MEASUREMENT.at[index, 'visit_concept_id'] = 38004515
-                
-            if row["measurement_concept_id"] is None:
-                df_MEASUREMENT.loc[index, "measurement_concept_id"] = 0
-
-            date_string = df_MEASUREMENT["measurement_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_MEASUREMENT.at[index, 'measurement_datetime'] = date_calculated
-
-            date_string = df_MEASUREMENT["visit_start_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_MEASUREMENT.at[index, 'visit_start_datetime'] = date_calculated
-
-            date_string = df_MEASUREMENT["visit_end_time"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_MEASUREMENT.at[index, 'visit_end_datetime'] = date_calculated            
-            
-            if 'measurement_concept_id' in df_MEASUREMENT.columns:
-                df_MEASUREMENT.loc[df_MEASUREMENT.measurement_source_concept_id == 'http://purl.obolibrary.org/obo/NCIT_C16358', 'measurement_concept_id'] = 4245997
-                df_MEASUREMENT.loc[df_MEASUREMENT.measurement_source_concept_id == 'http://purl.obolibrary.org/obo/NCIT_C25347', 'measurement_concept_id'] = 903133
-                df_MEASUREMENT.loc[df_MEASUREMENT.measurement_source_concept_id == 'http://purl.obolibrary.org/obo/NCIT_C25208', 'measurement_concept_id'] = 903121
-            
-        return df_MEASUREMENT 
-            
-    def table_observation_transformation(self,df_OBSERVATION):
-
-        df_OBSERVATION = df_OBSERVATION.where(pd.notnull(df_OBSERVATION), None)
-
-        for index, row in df_OBSERVATION.iterrows():
-            
-            if row["visit_type_concept_id"] == None:
-                df_OBSERVATION.at[index, 'visit_type_concept_id'] = 32879
-
-            if row["visit_concept_id"] == None:
-                df_OBSERVATION.at[index, 'visit_concept_id'] = 38004515
-                
-            if row["observation_type_concept_id"] == None:
-                df_OBSERVATION.at[index, 'observation_type_concept_id'] = 32879
-    
-            if row["observation_concept_id"] is None:
-                df_OBSERVATION.loc[index, "observation_concept_id"] = 0
-                           
-            date_string = df_OBSERVATION["observation_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_OBSERVATION.at[index, 'observation_datetime'] = date_calculated                
-
-            date_string = df_OBSERVATION["visit_start_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_OBSERVATION.at[index, 'visit_start_datetime'] = date_calculated
-
-            date_string = df_OBSERVATION["visit_end_time"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_OBSERVATION.at[index, 'visit_end_datetime'] = date_calculated
-
-        return df_OBSERVATION 
-
-    def table_procedure_transformation(self,df_PROCEDURE):
-
-        df_PROCEDURE = df_PROCEDURE.where(pd.notnull(df_PROCEDURE), None)
-
-        for index, row in df_PROCEDURE.iterrows():
-            
-            if row["visit_type_concept_id"] == None:
-                df_PROCEDURE.at[index, 'visit_type_concept_id'] = 32879
-
-            if row["visit_concept_id"] == None:
-                df_PROCEDURE.at[index, 'visit_concept_id'] = 38004515
-                
-            if row["procedure_type_concept_id"] == None:
-                df_PROCEDURE.at[index, 'procedure_type_concept_id'] = 32879   
-                
-            if row["procedure_concept_id"] is None:
-                df_PROCEDURE.loc[index, "procedure_concept_id"] = 0
-                           
-            date_string = df_PROCEDURE["procedure_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_PROCEDURE.at[index, 'procedure_datetime'] = date_calculated    
-            
-            date_string = df_PROCEDURE["procedure_end_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_PROCEDURE.at[index, 'procedure_end_datetime'] = date_calculated               
-
-            date_string = df_PROCEDURE["visit_start_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_PROCEDURE.at[index, 'visit_start_datetime'] = date_calculated
-
-            date_string = df_PROCEDURE["visit_end_time"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_PROCEDURE.at[index, 'visit_end_datetime'] = date_calculated
-         
-        return df_PROCEDURE 
-
-    def table_drug_transformation(self,df_DRUG_EXPOSE):
-
-        df_DRUG_EXPOSE = df_DRUG_EXPOSE.where(pd.notnull(df_DRUG_EXPOSE), None)
-
-        for index, row in df_DRUG_EXPOSE.iterrows():
-            
-            if row["visit_type_concept_id"] == None:
-                df_DRUG_EXPOSE.at[index, 'visit_type_concept_id'] = 32879
-
-            if row["visit_concept_id"] == None:
-                df_DRUG_EXPOSE.at[index, 'visit_concept_id'] = 38004515
-                
-            if row["drug_type_concept_id"] == None:
-                df_DRUG_EXPOSE.at[index, 'drug_type_concept_id'] = 32879
-                               
-            date_string = df_DRUG_EXPOSE["drug_exposure_start_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_DRUG_EXPOSE.at[index, 'drug_exposure_start_datetime'] = date_calculated    
-            
-            date_string = df_DRUG_EXPOSE["drug_exposure_end_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_DRUG_EXPOSE.at[index, 'drug_exposure_end_datetime'] = date_calculated               
-
-            date_string = df_DRUG_EXPOSE["visit_start_date"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_DRUG_EXPOSE.at[index, 'visit_start_datetime'] = date_calculated
-
-            date_string = df_DRUG_EXPOSE["visit_end_time"][index]
-            date_calculated = self.date_to_datetime(date_string)
-            df_DRUG_EXPOSE.at[index, 'visit_end_datetime'] = date_calculated
-
-        return df_DRUG_EXPOSE 
+    def table_procedure_occurrence_transformation(self, df):
+        df = df.copy()
+        df = self.fillna_defaults(df, {"procedure_type_concept_id": 32879})
+        df = self.convert_dates(df, ["procedure_date", "procedure_end_date", "visit_start_date", "visit_end_time"]) 
+        if "procedure_date" in df.columns:
+            df["procedure_datetime"] = df["procedure_date"]
+        if "procedure_end_date" in df.columns:
+            df["procedure_end_datetime"] = df["procedure_end_date"]
+        if "visit_start_date" in df.columns:
+            df["visit_start_datetime"] = df["visit_start_date"]
+        if "visit_end_time" in df.columns:
+            df["visit_end_datetime"] = df["visit_end_date"]
+        return df

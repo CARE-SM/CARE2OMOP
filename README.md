@@ -14,9 +14,12 @@ The CARE-SM to OMOP-CDM Mapping Service is designed to facilitate the integratio
 
 ## Table of Contents
 
-- [Usage](#usage)
-- [Docker and API](#docker-and-api)
-- [License](#license)
+- [CARE-SM to OMOP-CDM Mapping Service](#care-sm-to-omop-cdm-mapping-service)
+  - [Overview](#overview)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
+  - [Docker and API](#docker-and-api)
+  - [License](#license)
 
 
 ## Usage
@@ -53,3 +56,28 @@ Docker and API as a web service is under development.
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
+
+
+
+| Data element         | OMOP table(s)                                    |
+| -------------------- | ------------------------------------------------ |
+| Birthdate, Birthyear | person                                           |
+| Deathdate            | death                                            |
+| Sex                  | person                                           |
+| Country              | location (via person)                            |
+| Status               | observation / death                              |
+| First_visit          | visit_occurrence                                 |
+| Diagnosis            | condition_occurrence                             |
+| Phenotype            | condition_occurrence / observation / measurement |
+| Symptoms_onset       | condition_occurrence / observation               |
+| Examination          | measurement                                      |
+| Laboratory           | measurement                                      |
+| Prescription         | drug_exposure                                    |
+| Medication           | drug_exposure                                    |
+| Surgery              | procedure_occurrence                             |
+| Hospitalization      | visit_occurrence                                 |
+| Biobank              | specimen                                         |
+| Questionnaire        | observation                                      |
+| Disability           | observation                                      |
+
+Birthyear Clinical_trial Genetics
