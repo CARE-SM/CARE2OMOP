@@ -1,8 +1,8 @@
-PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX ordo: <http://www.orpha.net/ORDO/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX SCTID: <http://snomed.info/id/>
 
 SELECT distinct 
 
@@ -45,21 +45,19 @@ SELECT distinct
   ?discharged_to_source_value
   ?preceding_visit_occurrence_id
 
-
-
 WHERE {
     GRAPH ?g {
         ?id sio:SIO_000020 ?role ; sio:SIO_000300 ?person_id .
         ?role sio:SIO_000356 ?process ;  a sio:SIO_000016 .
-        ?process a sio:SIO_000006, ?process_type ; sio:SIO_000229 ?output; sio:SIO_000028 ?specific_method;  sio:SIO_000339 ?protocol . FILTER(?process_type = obo:NCIT_C70962) .
-        ?output sio:SIO_000628 ?attribute ; a sio:SIO_000015 .
-        ?attribute a sio:SIO_000614.   
+        ?process a sio:SIO_000006, ?process_type ; sio:SIO_000229 ?output; sio:SIO_000028 ?specific_method.
+        FILTER(?process_type = SCTID:18629005 ).
+        
+        ?output sio:SIO_000628 ?attribute ; a sio:SIO_000015 ; sio:SIO_000339 ?specification; sio:SIO_000300 ?quantity; sio:SIO_000221 ?unit. 
+        OPTIONAL{?unit a sio:SIO_000074, ?dose_unit_source_value . FILTER(?dose_unit_source_value != sio:SIO_000074)}
         OPTIONAL{?specific_method a ?route_source_value . FILTER(?route_source_value != sio:SIO_000006)}
 
-		?protocol a sio:SIO_000090 ; sio:SIO_000028 ?concentration, ?route, ?drug_source_value .
-        ?concentration a sio:SIO_001088 ; sio:SIO_000300 ?quantity; sio:SIO_000221 ?unit.  
-        ?drug_source_value a sio:SIO_000315 .
-        OPTIONAL{?unit a sio:SIO_000074, ?dose_unit_source_value . FILTER(?dose_unit_source_value != sio:SIO_000074)}
+		?specification a sio:SIO_000090 ; sio:SIO_000028 ?drug_source_value .
+        ?drug_source_value a sio:SIO_001385, SCTID:246488008.
     }
     ?g a sio:SIO_001027 ; sio:SIO_000068 ?event ;
                            sio:SIO_000680 ?startdate;

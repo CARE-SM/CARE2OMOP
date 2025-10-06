@@ -1,8 +1,8 @@
-PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX ordo: <http://www.orpha.net/ORDO/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX SCTID: <http://snomed.info/id/>
 
 SELECT distinct 
   ?person_id
@@ -30,7 +30,7 @@ WHERE {
         ?dob_role sio:SIO_000356 ?dob_process ; a sio:SIO_000016 .
         ?dob_process a sio:SIO_000006; sio:SIO_000229 ?dob_output .
         ?dob_output sio:SIO_000628 ?dob_attribute; a sio:SIO_000015. 
-        ?dob_attribute a sio:SIO_000614, obo:NCIT_C68615.    
+        ?dob_attribute a sio:SIO_000614, SCTID:3950001.    
         ?dob_output sio:SIO_000300 ?birth_datetime.   
     }
 
@@ -39,7 +39,7 @@ WHERE {
         ?sex_id sio:SIO_000020 ?sex_role ; sio:SIO_000300 ?person_id, ?person_source_value.
         ?sex_role sio:SIO_000356 ?sex_process ; a sio:SIO_000016 .
         ?sex_process a sio:SIO_000006; sio:SIO_000229 ?sex_output.
-        ?sex_output sio:SIO_000628 ?sex_attribute; a sio:SIO_000015, obo:NCIT_C160908. 
+        ?sex_output sio:SIO_000628 ?sex_attribute; a sio:SIO_000015, SCTID:734000001 . 
         ?sex_attribute a sio:SIO_000614,?gender_source_value . 
         FILTER (?gender_source_value != sio:SIO_000614)
     }
