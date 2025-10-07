@@ -21,4 +21,4 @@ df = df[df["vocabulary_id"] != "OSM"]
 df = df[df["concept_code"].astype(str).str.len() <= 20] # Removing row Blank nodes rather than concept_code
 
 # Save as comma-separated CSV
-df.to_csv("mappingATHENA_SNOMED.csv", index=False)
+df.to_csv("snomed_to_athena.csv", index=False)

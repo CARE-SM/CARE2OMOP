@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from utils import Workflow
+from utils import Workflow, ServerConnection
 from cols import (
     person_cols,
     death_cols,
@@ -15,25 +15,29 @@ from cols import (
 
 class CARE2OMOP:
     """
-    CARE2OMOP is the main class responsible for orchestrating the full ETL pipeline:
-    1. Extracting tables from a triplestore (via SPARQL queries)
-    2. Transforming them into OMOP-compatible DataFrames
-    3. Saving each OMOP domain table as a CSV
-    4. Constructing the VISIT_OCCURRENCE table from other tables that include visit-level data
+    CARE2OMOP orchestrates the full ETL pipeline:
+      1. Extract tables from a triplestore (SPARQL)
+      2. Transform into OMOP-compatible DataFrames
+      3. Export to CSVs per OMOP domain
+      4. Build VISIT_OCCURRENCE from visit-level data
     """
 
-    def __init__(self, endpoint, format_dir):
+    def __init__(self, config, format_dir):
         """
         Initialize the CARE2OMOP workflow.
 
         Parameters
         ----------
-        endpoint : str
-            URL of the SPARQL endpoint (the triplestore to query)
+        config : dict
+            Configuration with TRIPLESTORE_URL, USERNAME, and PASSWORD.
         format_dir : str
-            Path to the directory containing SPARQL query templates
+            Directory containing SPARQL query templates.
         """
-        self.workflow = Workflow(endpoint, format_dir)
+        mapping_path = "mapping/snomed_to_athena.csv"
+        server = ServerConnection(config)
+        endpoint = server.query_connection()
+        self.workflow = Workflow(endpoint, format_dir, mapping_path)
+
 
     # -------------------------------------------------------------------------
     # Core table processor
@@ -186,16 +190,12 @@ class CARE2OMOP:
 # Script entry point
 # ------------------------------------------------------------
 if __name__ == "__main__":
-    # Example configuration dictionary
     config = {
         "TRIPLESTORE_URL": "https://graphdb.ejprd.semlab-leiden.nl/repositories/unifiedCDE_model_no_context",
-        "TRIPLESTORE_USERNAME": "pabloa",  # optional if public
-        "TRIPLESTORE_PASSWORD": "ejprdejprd",  # optional if public
+        "TRIPLESTORE_USERNAME": "pabloa",
+        "TRIPLESTORE_PASSWORD": "ejprdejprd",
     }
 
-    # Directory containing SPARQL query templates
     format_dir = "templates"
-
-    # Initialize and execute CARE2OMOP pipeline
     c2o = CARE2OMOP(config, format_dir)
     c2o.run()
